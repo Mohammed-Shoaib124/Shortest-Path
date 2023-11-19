@@ -33,9 +33,9 @@ import java.util.Map;
                // count=count+1;
                System.out.println("City: " + cityName);
               System.out.println("  Temperature: " + cityData.getTemperature());
+              System.out.println("  Distance Data: " + cityData.getDistanceData());
             //[MillCity-NV,Eureka-NV,Wells-NV,Jackpot-NV,Montello-NV,Owyhee-NV,Eugene-OR,Gresham-OR,Hillsbboro-OR,Bend-OR]
-
-               System.out.println("  Distance Data: " + cityData.getDistanceData());//to get a value of distance at index 2 which is source city to Wells-NV
+            // System.out.println("  Distance Data: " + cityData.getDistanceData().get(2);//to get a value of distance at index 2 which is source city to Wells-NV
                System.out.println();
             }
                 // System.out.println("count"+count);
