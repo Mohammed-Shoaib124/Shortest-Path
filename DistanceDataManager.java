@@ -7,35 +7,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DistanceDataManager {
-	
-	 public List<List<String>> loadDistanceData(String csvFilePath) throws IOException {
-	        List<List<String>> distanceData = new ArrayList<>();
 
-	        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
-	            String line;
+    public List<List<String>> loadDistanceData(String csvFilePath) throws IOException {
+        List<List<String>> distanceData = new ArrayList<>();
 
-	           // Read the CSV file line by line
-	            while ((line = br.readLine()) != null) {
-	                // Split the line into columns using a comma as the delimiter
-	                String[] columns = line.split(",");
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
+            String line;
 
-	                // Create a list to store the entire row data
-	                List<String> rowData = new ArrayList<>();
+            // Read the CSV file line by line
+            while ((line = br.readLine()) != null) {
+                // Split the line into columns using a comma as the delimiter
+                String[] columns = line.split(",");
 
-	                // Add all columns to the list
-	                for (String value : columns) {
-	                    rowData.add(value.trim());
-	                }
+                // Create a list to store the entire row data
+                List<String> rowData = new ArrayList<>();
 
-	                // Add the list to the main list
-	                distanceData.add(rowData);
-	            }
-	        }
-	        catch (IOException e) {
-	            e.printStackTrace();
-	        }
+                // Add all columns to the list
+                for (String value : columns) {
+                    rowData.add(value.trim());
+                }
 
-	        return distanceData;
-	    }
+                // Add the list to the main list
+                distanceData.add(rowData);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return distanceData;
+    }
 
 }
