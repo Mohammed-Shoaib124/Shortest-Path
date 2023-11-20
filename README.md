@@ -38,27 +38,28 @@ https://www.onlinegdb.com/
 ![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/ff3dc986-db1d-4bbf-8726-1c126006d5e0)
 
 ## Example
-Enter the name of source city
-![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/d8072090-a4f7-4532-8143-3e491594c00a)
+- Enter the name of source city
+![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/b963ba98-2c3e-4da2-a16f-8a685ed3a2ca)
 
-Enter the name of destination city
+- Enter the name of destination city
 ![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/bb682e93-914f-48fb-b517-978631871199)
 
-Click enter to view the results
-![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/c2724a31-8aff-4b9a-9da2-424d95e8cb0d)
+- Click enter to view the results
+![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/54c78c28-8ad9-499d-91ee-25e0ee8fa827)
 
-Do you want to travel to other city? (y/n)
-![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/5fb75642-8d17-4957-8173-a594d42d3abf)
+- Do you want to travel to other city? (y/n)
+![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/a209bfa8-3a15-4afe-9b3b-28b772600d8a)
 
 - Click enter
 - Enter the city name
+![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/d21de5f9-c136-4809-ae63-c5de60809cf3)
+
+- Click enter
 ![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/96657221-67fa-4d4d-8fbc-9871d31998d9)
 
-Click enter
-![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/754e276d-40cb-411a-848a-09f9e64c1c1b)
+- Final result
+![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/a580138c-d024-4721-b16a-909be0eb0259)
 
-Final result
-![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/6c4d4995-c2c4-48fe-8715-781bd676f89e)
 
 
 
