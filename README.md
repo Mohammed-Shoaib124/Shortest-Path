@@ -1,5 +1,5 @@
 # Shortest-Path
-This project implements various algorithms to find the shortest path in a graph.
+
 ## Overview
 This project embodies an algorithmic implementations geared towards discerning the shortest path within graph structures. This encompass the accumulation of inter-city distances, weather data, and sea-level information, meticulously validated via a dedicated Load Data Program.
 This repository contains a collection of well- known algorithms that can find the quickest path between graph nodes. The accuracy and effectiveness in validation mechanisms, is demonstrated by the combination of these algorithms.
