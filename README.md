@@ -52,10 +52,10 @@ https://www.onlinegdb.com/
 
 - Click enter
 - Enter the city name
-![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/d21de5f9-c136-4809-ae63-c5de60809cf3)
+![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/374a7bdb-d141-4494-bf9c-1db53770732d)
 
 - Click enter
-![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/96657221-67fa-4d4d-8fbc-9871d31998d9)
+![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/8233a1c3-a41f-4cb7-9ac0-579aad2a2ae9)
 
 - Final result
 ![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/a580138c-d024-4721-b16a-909be0eb0259)
