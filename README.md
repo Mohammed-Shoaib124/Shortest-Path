@@ -8,7 +8,7 @@ This repository contains a collection of well- known algorithms that can find th
 ## Installation
 ### Prerequisites
 Ensure you have the following installed on your machine:
-Java Development Kit (JDK):Download here https://www.oracle.com/java/technologies/downloads/
+Java Development Kit (JDK): Download here https://www.oracle.com/java/technologies/downloads/
 
 Use online gdb to run all the files
 https://www.onlinegdb.com/
@@ -18,9 +18,9 @@ https://www.onlinegdb.com/
 - City2 - destination 
 
 ## Output
-- path from city1 to city2
-- distance travelled
-- gasoline usage in gallons
+- Path from city1 to city2
+- Distance travelled
+- Gasoline usage in gallons
 
 
 ## Steps
