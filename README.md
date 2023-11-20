@@ -50,7 +50,6 @@ https://www.onlinegdb.com/
 - Do you want to travel to other city? (y/n)
 ![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/a209bfa8-3a15-4afe-9b3b-28b772600d8a)
 
-- Click enter
 - Enter the city name
 ![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/374a7bdb-d141-4494-bf9c-1db53770732d)
 
