@@ -5,20 +5,24 @@ import java.util.Map;
 
 public class CityGraph {
     List<List<Integer>> adjacencyMatrix = new ArrayList<>();
-    public void createGraph(String distanceCsvFilePath , String weatherCsvFilePath) throws IOException {
+    Map<String, CityData> cityTemperatureMap;
+    List<List<String>> distanceData;
+
+    public void createGraph(String distanceCsvFilePath, String weatherCsvFilePath) {
         try {
             // int count=0;
             CityWeatherManager cityWeatherManager = new CityWeatherManager();
             DistanceDataManager distanceDataManager = new DistanceDataManager();
             // Load temperature data
-            Map<String, CityData> cityTemperatureMap = cityWeatherManager.loadTemperatureData(weatherCsvFilePath);
+            this.cityTemperatureMap = cityWeatherManager.loadTemperatureData(weatherCsvFilePath);
             // Load distance data
-            List<List<String>> distanceData = distanceDataManager.loadDistanceData(distanceCsvFilePath);
+            this.distanceData = distanceDataManager.loadDistanceData(distanceCsvFilePath);
             // Combine temperature and distance data
             cityWeatherManager.combineData(cityTemperatureMap, distanceData);
             for (Map.Entry<String, CityData> entry : cityTemperatureMap.entrySet()) {
                 String cityName = entry.getKey();
                 CityData cityData = entry.getValue();
+//                System.out.println(cityName+" "+cityData.temperature);
                 this.adjacencyMatrix.add(cityData.getDistanceData());
 
             }
@@ -26,8 +30,14 @@ public class CityGraph {
             e.printStackTrace();
         }
     }
-    public  List<List<Integer>> getAdjacencyMatrix(){
+
+    public List<List<Integer>> getAdjacencyMatrix() {
         return adjacencyMatrix;
+    }
+
+    public Map<String, CityData> getTemperature() {
+        return cityTemperatureMap;
+
     }
 
 }
