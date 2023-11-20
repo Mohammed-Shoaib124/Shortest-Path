@@ -21,6 +21,14 @@ public class Main {
     static Map<String, CityData> temperature;
     private static final int NO_PARENT = -1;
 
+    public static int getTemp(String city){
+        String formatedCity = city.toLowerCase().replaceAll("\\s", "").replaceAll(",", "-");
+        if(temperature.get(formatedCity)!=null) {
+            return temperature.get(formatedCity).temperature;
+        }
+        return 34;
+    }
+
     // Function that implements Dijkstra's
     // single source shortest path
     // algorithm for a graph represented
@@ -122,7 +130,8 @@ public class Main {
                 System.out.print("PATH : ");
                 printPath(vertexIndex, parents, endVertex);
                 System.out.println();
-                System.out.print("DISTANCE : " + distances[vertexIndex]);
+                System.out.println("DISTANCE : " + distances[vertexIndex]);
+                System.out.println("GASOLINE USAGE : " + Math.ceil(distances[vertexIndex]/20) + " Gallons.");
             }
         }
     }
@@ -139,7 +148,7 @@ public class Main {
             return;
         }
         printPath(parents[currentVertex], parents, endVertex);
-        System.out.print(cities[currentVertex] + "(" + 34 + " F)");
+        System.out.print(cities[currentVertex] + "(" + getTemp(cities[currentVertex]) + " F)");
         if (currentVertex != endVertex) {
             System.out.print(" ---> ");
         }
@@ -171,32 +180,29 @@ public class Main {
             }
         }
         temperature = map.getTemperature();
-//        System.out.println(temperature.get("Nampa-ID").temperature);
-//        for (Map.Entry<String, CityData> entry : temperature.entrySet()) {
-//            String cityName = entry.getKey();
-//            CityData cityData = entry.getValue();
-//            System.out.println(cityName+" "+cityData.temperature);
-//        }
-
-
-//        for(int i =0;i<adjMat.length;i++){
-//            for(int j =0;j<adjMat[i].length;j++){
-//                System.out.print(adjMat[i][j]+" ");
-//            }
-//            System.out.println();
-//        }
-
 
         // Path Algorithms...
+        boolean travel = true;
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the Source city : ");
         String source = sc.nextLine();
-        System.out.print("Enter the Destination city : ");
-        String destination = sc.nextLine();
-        int sourceIndex = findIndex(cities, source);
-        int destinationIndex = findIndex(cities, destination);
-        dijkstra(adjMat, sourceIndex, destinationIndex);
+
+        while(travel){
+            System.out.print("Enter the Destination city : ");
+            String destination = sc.nextLine();
+            int sourceIndex = findIndex(cities, source);
+            int destinationIndex = findIndex(cities, destination);
+            dijkstra(adjMat, sourceIndex, destinationIndex);
+            System.out.print("Do you want to travel to other city ? (Y/N) : ");
+            String confirm = sc.nextLine();
+            if(!confirm.trim().toLowerCase().equals("y")){
+                travel = false;
+            }else{
+                source = destination;
+            }
+        }
+
 
     }
 }

@@ -22,7 +22,6 @@ public class CityGraph {
             for (Map.Entry<String, CityData> entry : cityTemperatureMap.entrySet()) {
                 String cityName = entry.getKey();
                 CityData cityData = entry.getValue();
-//                System.out.println(cityName+" "+cityData.temperature);
                 this.adjacencyMatrix.add(cityData.getDistanceData());
 
             }

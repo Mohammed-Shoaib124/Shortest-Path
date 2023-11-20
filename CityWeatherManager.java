@@ -25,7 +25,7 @@ public class CityWeatherManager {
                 }
 
                 String[] columns = line.split(",");
-                String cityName = columns[0].trim();
+                String cityName = columns[0].toLowerCase().replaceAll("\\s", "");
                 int temperature;
 
                 try {
@@ -52,7 +52,7 @@ public class CityWeatherManager {
                 continue;
             }
 
-            String cityName = rowData.get(0).trim();
+            String cityName = rowData.get(0).toLowerCase().replaceAll("\\s", "");
             CityData cityData = cityTemperatureMap.getOrDefault(cityName, new CityData(0));
 
             // Parse distance values into integers
