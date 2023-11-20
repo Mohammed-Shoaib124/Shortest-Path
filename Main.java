@@ -18,6 +18,7 @@ public class Main {
             "Dickinson,ND", "Bowman,ND", "Harrison,NE", "Imperial,NE", "Alliance,NE", "Grant,NE", "ElPaso,TX", "Tribune,NV", "SharonSprings,KS",
             "Loeti,KS", "Boise,ID", "Meridian,ID", "Nampa,ID", "IdahoFalls,ID", "Pocatello,ID", "Caldwell,ID", "Ketchum,ID", "Chilly,ID",
             "May,ID", "Donnelly,ID", "Buhl,ID", "Kamaih,ID", "Butte,ID"};
+    static Map<String, CityData> temperature;
     private static final int NO_PARENT = -1;
 
     // Function that implements Dijkstra's
@@ -113,16 +114,15 @@ public class Main {
                                       int[] distances,
                                       int[] parents, int endVertex) {
         int nVertices = distances.length;
-        System.out.print("Vertex\t Distance\tPath");
 
         for (int vertexIndex = 0;
              vertexIndex < nVertices;
              vertexIndex++) {
             if (endVertex == vertexIndex) {
-                System.out.print("\n" + startVertex + " -> ");
-                System.out.print(vertexIndex + " \t\t ");
-                System.out.print(distances[vertexIndex] + "\t\t");
-                printPath(vertexIndex, parents);
+                System.out.print("PATH : ");
+                printPath(vertexIndex, parents, endVertex);
+                System.out.println();
+                System.out.print("DISTANCE : " + distances[vertexIndex]);
             }
         }
     }
@@ -131,15 +131,19 @@ public class Main {
     // from source to currentVertex
     // using parents array
     private static void printPath(int currentVertex,
-                                  int[] parents) {
+                                  int[] parents, int endVertex) {
 
         // Base case : Source node has
         // been processed
         if (currentVertex == NO_PARENT) {
             return;
         }
-        printPath(parents[currentVertex], parents);
-        System.out.print(cities[currentVertex] + " ---> ");
+        printPath(parents[currentVertex], parents, endVertex);
+        System.out.print(cities[currentVertex] + "(" + 34 + " F)");
+        if (currentVertex != endVertex) {
+            System.out.print(" ---> ");
+        }
+//        System.out.print(temperature.get(cities[currentVertex].toLowerCase().replaceAll("\\s", "")).temperature);
     }
 
     private static int findIndex(String[] cities, String city) {
@@ -166,8 +170,8 @@ public class Main {
                 adjMat[i][j] = distanceMatrix.get(i).get(j);
             }
         }
-//        Map<String, CityData> temperature = map.getTemperature();
-//        System.out.println(temperature.get("Nampa-ID"));
+        temperature = map.getTemperature();
+//        System.out.println(temperature.get("Nampa-ID").temperature);
 //        for (Map.Entry<String, CityData> entry : temperature.entrySet()) {
 //            String cityName = entry.getKey();
 //            CityData cityData = entry.getValue();
