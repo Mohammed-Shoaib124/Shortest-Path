@@ -7,13 +7,14 @@ This repository contains a collection of well- known algorithms that can find th
 ## Installation
 ### Prerequisites
 Ensure you have the following installed on your machine:
-Java Development Kit (JDK):[Download here] (https://www.oracle.com/java/technologies/downloads/)
+Java Development Kit (JDK):Download here https://www.oracle.com/java/technologies/downloads/
 
-[Use online gdb to run all the files] (https://www.onlinegdb.com/)
+Use online gdb to run all the files
+https://www.onlinegdb.com/
 
 ## Input
-City1 - source
-City2 - destination 
+- City1 - source
+- City2 - destination 
 
 ## Output
 - path from city1 to city2
@@ -32,6 +33,6 @@ City2 - destination
 - Gasoline usage in gallons is specified
 - If you want to travel to another city, enter y(yes) otherwise n(no)
 
-## Demo output/Example
+## Demo output
 ![image](https://github.com/Mohammed-Shoaib124/Shortest-Path/assets/151453614/ff3dc986-db1d-4bbf-8726-1c126006d5e0)
 
