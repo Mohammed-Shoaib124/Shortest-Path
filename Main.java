@@ -22,10 +22,10 @@ import java.util.Map;
             // Load distance data
             List<List<String>> distanceData = distanceDataManager.loadDistanceData(distanceCsvFilePath);
 
-            possible_paths paths = new possible_paths(distanceData);
+            possible_paths paths = new possible_paths(distanceData, startCity);
 
-         			String startCity = "Imperial-NE"; // Replace with actual start city
-         			String endCity = "Harrison-NE"; // Replace with actual end city
+         			String startCity = "Mill City-NV"; // Replace with actual start city
+            String endCity = "Howe-ID"; // Replace with actual end city
          
          			List<List<String>> allPaths = paths.findAllPaths(startCity, endCity);
          
