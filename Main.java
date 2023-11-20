@@ -25,6 +25,45 @@ public class Main {
         String formatedCity = city.toLowerCase().replaceAll("\\s", "").replaceAll(",", "-");
         if(temperature.get(formatedCity)!=null) {
             return temperature.get(formatedCity).temperature;
+    public static void main(String[] args) {
+    	String weatherCsvFilePath = "/uploads/weather_avg.csv";
+        String distanceCsvFilePath ="/uploads/distance_matrics.csv";
+        try {
+           // int count=0;
+        	CityWeatherManager cityWeatherManager = new CityWeatherManager();
+            DistanceDataManager distanceDataManager = new DistanceDataManager();
+            // Load temperature data
+            Map<String, CityData> cityTemperatureMap = cityWeatherManager.loadTemperatureData(weatherCsvFilePath);
+
+            // Load distance data
+            List<List<String>> distanceData = distanceDataManager.loadDistanceData(distanceCsvFilePath);
+
+            possible_paths paths = new possible_paths(distanceData, startCity);
+
+         			String startCity = "Mill City-NV"; // Replace with actual start city
+            String endCity = "Howe-ID"; // Replace with actual end city
+         
+         			List<List<String>> allPaths = paths.findAllPaths(startCity, endCity);
+         
+            // Combine temperature and distance data
+            cityWeatherManager.combineData(cityTemperatureMap, distanceData);
+           //System.out.println("Total number of cities: " + cityTemperatureMap.size());
+            // Print the combined data
+            for (Map.Entry<String, CityData> entry : cityTemperatureMap.entrySet()) {
+                String cityName = entry.getKey();
+                CityData cityData = entry.getValue();
+               // System.out.println(cityName);
+               // count=count+1;
+               System.out.println("City: " + cityName);
+              System.out.println("  Temperature: " + cityData.getTemperature());
+              System.out.println("  Distance Data: " + cityData.getDistanceData());
+            //[MillCity-NV,Eureka-NV,Wells-NV,Jackpot-NV,Montello-NV,Owyhee-NV,Eugene-OR,Gresham-OR,Hillsbboro-OR,Bend-OR]
+            // System.out.println("  Distance Data: " + cityData.getDistanceData().get(2);//to get a value of distance at index 2 which is source city to Wells-NV
+               System.out.println();
+            }
+                // System.out.println("count"+count);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return 34;
     }
