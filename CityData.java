@@ -1,16 +1,20 @@
-
-import java.util.LinkedHashMap;
+//package cities;
+//import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.ArrayList; 
 
-//import cities.Main.WeatherData;
 
 public class CityData {
-    public final LinkedHashMap<String, WeatherData> weatherData = new LinkedHashMap<>();
+    public int temperature;
     public List<Integer> distanceData;
-    public List<Integer> seaLeveldata;
 
-    public LinkedHashMap<String, WeatherData> getWeatherData() {
-        return weatherData;
+    public CityData(int temperature) {
+        this.temperature = temperature;
+        this.distanceData = new ArrayList<>();
+    }
+
+    public int getTemperature() {
+        return temperature;
     }
 
     public List<Integer> getDistanceData() {
@@ -19,12 +23,5 @@ public class CityData {
 
     public void setDistanceData(List<Integer> distanceData) {
         this.distanceData = distanceData;
-    }
-    
-     public List<Integer> getseaLeveldata() {
-        return seaLeveldata;
-    }
-    public void setseaLeveldata(List<Integer> seaLeveldata) {
-        this.seaLeveldata = seaLeveldata;
     }
 }
