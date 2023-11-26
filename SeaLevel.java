@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DistanceDataManager {
+public class SeaLevel {
 	
-	 public List<List<String>> loadDistanceData(String csvFilePath) throws IOException {
-	        List<List<String>> distanceData = new ArrayList<>();
+	 public List<List<String>> loadSeaLevel(String csvFilePath) throws IOException {
+	        List<List<String>> seaLeveldata = new ArrayList<>();
 
 	        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
 	            String line;
@@ -27,14 +27,14 @@ public class DistanceDataManager {
 	                }
 
 	                // Add the list to the main list
-	                distanceData.add(rowData);
+	                seaLeveldata.add(rowData);
 	            }
 	        }
 	        catch (IOException e) {
 	            e.printStackTrace();
 	        }
 
-	        return distanceData;
+	        return seaLeveldata;
 	    }
 
 }

@@ -6,15 +6,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.io.BufferedWriter;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.io.FileWriter;
 import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) {
-    	String weatherCsvFilePath = "C:/Users/saini/eclipse-workspace/githublatest/pkg/weather.csv";
-        String distanceCsvFilePath = "C:/Users/saini/eclipse-workspace/githublatest/pkg/distance.csv";
+    	long startTime = System.currentTimeMillis();
+    	
+    	String weatherCsvFilePath = "C:/Users/saini/eclipse-workspace/githublatest/pkg/weathertest.csv";
+        String distanceCsvFilePath = "C:/Users/saini/eclipse-workspace/githublatest/pkg/distance_matrics.csv";
         String seaLevelCsvFilePath = "C:/Users/saini/eclipse-workspace/githublatest/pkg/seaLevel.csv";
         
         try {
@@ -34,10 +38,26 @@ public class Main {
              // Combining data
             cityWeatherManager.combineData(cityWeatherMap, distanceData,seaLeveldata);
             
-            possible_paths_1 paths = new possible_paths_1(distanceData, "MillCity-NV",10 ,cityWeatherMap);
+            possible_paths_1 paths = new possible_paths_1(distanceData, "SaltLakeCity-UT", "Albuquerque-NM", 10 ,cityWeatherMap);
             
-            List<List<String>> allpaths = paths.findAllPaths("MillCity-NV", "Eureka-NV");
-   
+            List<List<String>> allpaths = paths.findAllPaths("SaltLakeCity-UT", "Albuquerque-NM");
+            
+//            String filePath = "B:/Fall 2023/Algorithms/Project/allpaths.txt";
+//            
+//            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+//                for (List<String> path : allpaths) {
+//                    // Join the elements of the path into a comma-separated string
+//                    String pathString = String.join(" -> ", path);
+//                    // Write the path to the file
+//                    writer.write(pathString);
+//                    writer.newLine(); // Move to the next line for the next path
+//                }
+//                System.out.println("Paths written to file: " + filePath);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+            
+            
 
             // Print the combined data
 //            for (Map.Entry<String, CityData> entry : cityWeatherMap.entrySet()) {
@@ -56,7 +76,11 @@ public class Main {
 //                System.out.println("sea level: "+ cityData.getseaLeveldata()+"ft");
 //                System.out.println();
 //            }
-        
+            long endTime = System.currentTimeMillis();
+
+            // Calculate and print the runtime
+            long runtime = endTime - startTime;
+            System.out.println("Runtime: " + runtime + " milliseconds");
         } 
         catch (IOException e) {
             e.printStackTrace();
