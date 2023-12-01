@@ -1,5 +1,4 @@
-//package cities;
-
+package pkg;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,34 +6,67 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DistanceDataManager {
+	
+	 public List<List<String>> loadDistanceData(String csvFilePath) throws IOException {
+	        List<List<String>> distanceData = new ArrayList<>();
 
-    public List<List<String>> loadDistanceData(String csvFilePath) throws IOException {
-        List<List<String>> distanceData = new ArrayList<>();
+	        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
+	            String line;
 
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
+	           // Read the CSV file line by line
+	            while ((line = br.readLine()) != null) {
+	                // Split the line into columns using a comma as the delimiter
+	                String[] columns = line.split(",");
+
+	                // Create a list to store the entire row data
+	                List<String> rowData = new ArrayList<>();
+
+	                // Add all columns to the list
+	                for (String value : columns) {
+	                    rowData.add(value.trim());
+	                }
+
+	                // Add the list to the main list
+	                distanceData.add(rowData);
+	            }
+	        }
+	        catch (IOException e) {
+	            e.printStackTrace();
+	        }
+
+	        return distanceData;
+	    }
+	 
+	 public int[][] readCSV(String filePath) {
+        int[][] adjacencyMatrix = null;
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
+            int size = 0;
 
-            // Read the CSV file line by line
             while ((line = br.readLine()) != null) {
-                // Split the line into columns using a comma as the delimiter
-                String[] columns = line.split(",");
-
-                // Create a list to store the entire row data
-                List<String> rowData = new ArrayList<>();
-
-                // Add all columns to the list
-                for (String value : columns) {
-                    rowData.add(value.trim());
-                }
-
-                // Add the list to the main list
-                distanceData.add(rowData);
+                size++;
             }
-        } catch (IOException e) {
+           // System.out.println("size is "+size);
+            // Reset the reader to the beginning of the file
+            //reader.close();
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+
+            adjacencyMatrix = new int[size][size];
+           // System.out.println(adjacencyMatrix);
+
+            int i = 0;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(",");
+                //System.out.println("line values "+values);
+                for (int j = 0; j < size; j++) {
+                    adjacencyMatrix[i][j] = Integer.parseInt(values[j]);
+                    //System.out.println("matrix values "+adjacencyMatrix[i][j]);
+                }
+                i++;
+            }
+        } catch (IOException | NumberFormatException e) {
             e.printStackTrace();
         }
-
-        return distanceData;
+        return adjacencyMatrix;
     }
-
 }
